@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block custom_css %}
+    <link rel="stylesheet" href="{% static 'css/url_validator/index.css' %}">
+{% endblock %}
+
+{% block navbar %}
+    <h1>URL Validator</h1>
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h2>
+            Enter Github Repository link
+        </h2>
+    </div>
+    <div class="container">
+        <form method="post">
+            {% csrf_token %}
+            <div class="input-group mb-3">
+                <input name="url" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            </div>
+            <div class="error-text">
+                Enter valid GitHub URL!
+            </div>
+            <div class="submit">
+                <button type="submit" class="btn btn-outline-primary">Submit</button>
+            </div>
+        </form>
+    </div>
+{% endblock %}

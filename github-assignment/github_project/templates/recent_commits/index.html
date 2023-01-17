@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block custom_css %}
+    <link rel="stylesheet" href="{% static 'css/recent_commits/index.css' %}">
+{% endblock %}
+
+{% block navbar %}
+    <h1>Recent Commits</h1>
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <form action="download/" method="post">
+            {% csrf_token %}
+            <h2>Your file is ready to download!</h2>
+            <div class="download">
+                <button type="submit" class="btn btn-outline-primary">Download File</button>
+            </div>
+        </form>
+         <div>
+            <a href="{% url 'committers:committers_home_page' %}">
+            <button class="link btn btn-outline-success">Top Committers</button> 
+            </a> 
+        </div> 
+    </div>
+
+{% endblock %}

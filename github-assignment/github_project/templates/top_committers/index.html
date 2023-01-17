@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block custom_css %}
+    <link rel="stylesheet" href="{% static 'css/top_committers/index.css' %}">
+{% endblock %}
+
+{% block navbar %}
+    <h1>Top 10 Committers</h1>
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <form action="download/" method="post">
+            {% csrf_token %}
+            <h2>Your file is ready to download!</h2>
+            <div class="download">
+                <button type="submit" class="btn btn-outline-primary">Download File</button>
+            </div>
+        </form>
+    </div>
+    
+{% endblock %}
